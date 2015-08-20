@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
@@ -13,12 +14,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/show_result_tv"
+            android:id="@+id/mTextViewInput"
             style="@style/ScreenText"
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/show_input_tv"
+            android:id="@+id/mTextViewResult"
             style="@style/ScreenText"
             android:text="0"
             android:textSize="56sp"/>
@@ -33,53 +34,31 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/c_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnClear"
                 style="@style/WhiteButton"
                 android:text="C"
-                android:textColor="#EF7524"/>
+                android:textColor="#EF7524"
+                app:button_name="clear"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/del_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnDelete"
                 style="@style/WhiteButton"
-                android:text="DEL"/>
+                android:text="DEL"
+                app:button_name="delete"/>
 
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/left_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnLeftBracket"
                 style="@style/WhiteButton"
-                android:text="@string/left_bracket"/>
+                android:text="@string/left_bracket"
+                app:button_name="left_bracket"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/right_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnRightBracket"
                 style="@style/WhiteButton"
-                android:text="@string/right_bracket"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/seven_btn"
-                style="@style/WhiteButton"
-                android:text="@string/seven"/>
-
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/eight_btn"
-                style="@style/WhiteButton"
-                android:text="@string/eight"/>
-
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/nine_btn"
-                style="@style/WhiteButton"
-                android:text="@string/nine"/>
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/multiply_btn"
-                style="@style/WhiteButton"
-                android:text="@string/multply"/>
+                android:text="@string/right_bracket"
+                app:button_name="right_bracket"/>
 
         </LinearLayout>
 
@@ -89,25 +68,60 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/four_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnSeven"
                 style="@style/WhiteButton"
-                android:text="@string/four"/>
+                android:text="@string/seven"
+                app:button_name="seven"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/five_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnEight"
                 style="@style/WhiteButton"
-                android:text="@string/five"/>
+                android:text="@string/eight"
+                app:button_name="eight"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/six_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnNine"
                 style="@style/WhiteButton"
-                android:text="@string/six"/>
+                android:text="@string/nine"
+                app:button_name="nine"/>
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnMutiply"
+                style="@style/WhiteButton"
+                android:text="@string/multiply"
+                app:button_name="multiply"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/divide_btn"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnFour"
                 style="@style/WhiteButton"
-                android:text="@string/divide"/>
+                android:text="@string/four"
+                app:button_name="four"/>
+
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnFive"
+                style="@style/WhiteButton"
+                android:text="@string/five"
+                app:button_name="five"/>
+
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnSix"
+                style="@style/WhiteButton"
+                android:text="@string/six"
+                app:button_name="six"/>
+
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnDivide"
+                style="@style/WhiteButton"
+                android:text="@string/divide"
+                app:button_name="divide"/>
 
 
         </LinearLayout>
@@ -119,24 +133,28 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/one_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnOne"
                 style="@style/WhiteButton"
-                android:text="@string/one"/>
+                android:text="@string/one"
+                app:button_name="one"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/two_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnTwo"
                 style="@style/WhiteButton"
-                android:text="@string/two"/>
+                android:text="@string/two"
+                app:button_name="two"/>
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/three_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnThree"
                 style="@style/WhiteButton"
-                android:text="@string/three"/>
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/add_btn"
+                android:text="@string/three"
+                app:button_name="three"/>
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnAdd"
                 style="@style/WhiteButton"
-                android:text="@string/add"/>
+                android:text="@string/add"
+                app:button_name="add"/>
         </LinearLayout>
 
         <LinearLayout
@@ -144,27 +162,31 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/point_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnPoint"
                 style="@style/WhiteButton"
-                android:text="@string/point"/>
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/zero_btn"
+                android:text="@string/point"
+                app:button_name="point"/>
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnZero"
                 style="@style/WhiteButton"
-                android:text="@string/zero"/>
+                android:text="@string/zero"
+                app:button_name="zero"/>
 
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/equal_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnEqual"
                 style="@style/OrangeButton"
                 android:layout_weight="1"
-                android:text="@string/equal"/>
+                android:text="@string/equal"
+                app:button_name="equal"/>
 
 
-            <com.example.chenjinhang.calculator.view.MiButton
-                android:id="@+id/sub_btn"
+            <com.example.chenjinhang.calculator.MiButton
+                android:id="@+id/mBtnSub"
                 style="@style/WhiteButton"
-                android:text="@string/sub"/>
+                android:text="@string/subtract"
+                app:button_name="subtract"/>
         </LinearLayout>
 
     </LinearLayout>

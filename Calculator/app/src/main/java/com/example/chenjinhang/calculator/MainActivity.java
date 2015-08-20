@@ -1,37 +1,39 @@
 package com.example.chenjinhang.calculator;
 
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@EActivity(R.layout.activity_main)
+public class MainActivity extends AppCompatActivity implements Controller.IShell {
+    @ViewById
+    TextView mTextViewResult;
+    @ViewById
+    TextView mTextViewInput;
+    private Controller mController;
+    @AfterViews
+    public void init(){
+        mController = new Controller();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    @Click({R.id.mBtnClear,R.id.mBtnDelete,R.id.mBtnEqual})
+    public void onControlClick(View view){
+        switch (view.getId()){
+            case R.id.mBtnEqual:
+                break;
+            case R.id.mBtnClear:
+                break;
+            case R.id.mBtnDelete:
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void refreshScreen(String inputScreen, String resultScreen) {
+        mTextViewInput.setText(inputScreen);
+        mTextViewResult.setText(resultScreen);
     }
 }

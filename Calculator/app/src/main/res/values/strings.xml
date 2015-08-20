@@ -15,9 +15,9 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="divide">÷</string>
-    <string name="multply">×</string>
+    <string name="multiply">×</string>
     <string name="add">+</string>
-    <string name="sub">-</string>
+    <string name="subtract">-</string>
     <string name="point">.</string>
     <string name="equal">=</string>
     <string name="left_bracket">(</string>
