@@ -6,12 +6,14 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.Button;
 
+import com.example.chenjinhang.calculator.responser.Responser;
+
 /**
  * Created by chenjinhang on 2015/8/19.
  */
 public class MiButton extends Button {
     private String mName;
-    private IResponser mResponser;
+    private Responser mResponser;
 
     public MiButton(Context context) {
         super(context);
@@ -35,11 +37,11 @@ public class MiButton extends Button {
         mName = name;
     }
 
-    public IResponser getResponser() {
+    public Responser getResponser() {
         return mResponser;
     }
 
-    public void setResponser(IResponser responser) {
+    public void setResponser(Responser responser) {
         mResponser = responser;
     }
 
