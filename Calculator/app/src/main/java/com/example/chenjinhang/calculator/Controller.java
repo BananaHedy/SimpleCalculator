@@ -21,7 +21,7 @@ public class Controller {
     private String mInputText;
     private String mResultText;
 
-    public Controller(Context context,IShell shell) {
+    public Controller(Context context, IShell shell) {
         this.context = context;
         this.mShell = shell;
         mMemory = new StringBuilder();
@@ -34,6 +34,9 @@ public class Controller {
         Responser responser = miButton.getResponser();
         if (responser == null) {
             responser = mResponserFactory.createResponser(miButton);
+            if (responser == null) {
+                return;
+            }
             miButton.setResponser(responser);
         }
         responser.onResponse(mMemory, mNumberStack, mOperatorStack);
@@ -44,8 +47,14 @@ public class Controller {
     public void clear() {
         mInputText = "0";
         mResultText = "";
-        mMemory.delete(0, mMemory.length());
+        reset();
         refreshScreen();
+    }
+
+    private void reset() {
+        mMemory.delete(0, mMemory.length());
+        mNumberStack.clear();
+        mOperatorStack.clear();
     }
 
     public void delete() {
@@ -58,17 +67,17 @@ public class Controller {
     }
 
     public void calculate() {
-//        while (!mOperatorStack.isEmpty()) {
-//            mOperatorStack.pop().onOperate(mNumberStack, mOperatorStack);
-//        }
-//        if (!mNumberStack.isEmpty() && mNumberStack.size() == 1) {
-//            BigDecimal finalResult = mNumberStack.pop();
-//            mResultText = mInputText;
-//            mInputText = finalResult.toPlainString();
-//        } else {
-//            error();
-//        }
-        mResultText = mInputText;
+        while (!mOperatorStack.isEmpty()) {
+            mOperatorStack.pop().onOperate(mNumberStack, mOperatorStack);
+        }
+        if (!mNumberStack.isEmpty() && mNumberStack.size() == 1) {
+            BigDecimal finalResult = mNumberStack.pop();
+            mResultText = mMemory.toString();
+            mInputText = finalResult.toPlainString();
+        } else {
+            error();
+        }
+        reset();
         refreshScreen();
     }
 

@@ -9,20 +9,26 @@ import java.util.Stack;
 /**
  * Created by chenjinhang on 2015/8/21.
  */
-public class SimpleNumberResponser extends Responser {
-
+public class PointResponser extends Responser {
     @Override
     public void onResponse(StringBuilder memomry, Stack<BigDecimal> numberStack, Stack<Operator> operatorStack) {
+        //空不加
+        if (memomry.length() == 0) {
+            return;
+        }
+        //运算符后面不加
+        String lastChar = Core.getLastIfOperator(memomry.toString());
+        if (lastChar != null) {
+            return;
+        }
+        //数字有点不加
         String lastNumber = Core.getLastIfNumber(memomry.toString());
-        if (lastNumber != null && !lastNumber.equals("") && !numberStack.empty()) {
-            numberStack.pop();
+        if (lastNumber != null) {
+            if (lastNumber.contains(buttonText)) {
+                return;
+            }
         }
+
         memomry.append(buttonText);
-        lastNumber = Core.getLastIfNumber(memomry.toString());
-        if (lastNumber != null && !lastNumber.equals("")) {
-            numberStack.push(new BigDecimal(lastNumber));
-        }
     }
-
-
 }

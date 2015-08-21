@@ -15,5 +15,5 @@ public abstract class Responser {
         this.buttonText = buttonText;
     }
 
-    public abstract boolean onResponse(StringBuilder memomry,Stack<BigDecimal> numberStack,Stack<Operator> operatorStack);
+    public abstract void onResponse(StringBuilder memomry,Stack<BigDecimal> numberStack,Stack<Operator> operatorStack);
 }
