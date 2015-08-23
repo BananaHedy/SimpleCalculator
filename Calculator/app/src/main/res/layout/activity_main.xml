@@ -37,27 +37,23 @@
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnClear"
                 style="@style/WhiteButton"
-                android:text="C"
                 android:textColor="#EF7524"
                 app:button_name="clear"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnDelete"
                 style="@style/WhiteButton"
-                android:text="DEL"
                 app:button_name="delete"/>
 
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnLeftBracket"
                 style="@style/WhiteButton"
-                android:text="@string/left_bracket"
                 app:button_name="left_bracket"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnRightBracket"
                 style="@style/WhiteButton"
-                android:text="@string/right_bracket"
                 app:button_name="right_bracket"/>
 
         </LinearLayout>
@@ -71,24 +67,20 @@
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnSeven"
                 style="@style/WhiteButton"
-                android:text="@string/seven"
                 app:button_name="seven"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnEight"
                 style="@style/WhiteButton"
-                android:text="@string/eight"
                 app:button_name="eight"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnNine"
                 style="@style/WhiteButton"
-                android:text="@string/nine"
                 app:button_name="nine"/>
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnMutiply"
                 style="@style/WhiteButton"
-                android:text="@string/multiply"
                 app:button_name="multiply"/>
 
         </LinearLayout>
@@ -102,25 +94,21 @@
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnFour"
                 style="@style/WhiteButton"
-                android:text="@string/four"
                 app:button_name="four"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnFive"
                 style="@style/WhiteButton"
-                android:text="@string/five"
                 app:button_name="five"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnSix"
                 style="@style/WhiteButton"
-                android:text="@string/six"
                 app:button_name="six"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnDivide"
                 style="@style/WhiteButton"
-                android:text="@string/divide"
                 app:button_name="divide"/>
 
 
@@ -136,24 +124,20 @@
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnOne"
                 style="@style/WhiteButton"
-                android:text="@string/one"
                 app:button_name="one"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnTwo"
                 style="@style/WhiteButton"
-                android:text="@string/two"
                 app:button_name="two"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnThree"
                 style="@style/WhiteButton"
-                android:text="@string/three"
                 app:button_name="three"/>
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnAdd"
                 style="@style/WhiteButton"
-                android:text="@string/add"
                 app:button_name="add"/>
         </LinearLayout>
 
@@ -165,12 +149,10 @@
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnPoint"
                 style="@style/WhiteButton"
-                android:text="@string/point"
                 app:button_name="point"/>
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnZero"
                 style="@style/WhiteButton"
-                android:text="@string/zero"
                 app:button_name="zero"/>
 
 
@@ -178,14 +160,12 @@
                 android:id="@+id/mBtnEqual"
                 style="@style/OrangeButton"
                 android:layout_weight="1"
-                android:text="@string/equal"
                 app:button_name="equal"/>
 
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnSub"
                 style="@style/WhiteButton"
-                android:text="@string/subtract"
                 app:button_name="subtract"/>
         </LinearLayout>
 

@@ -12,7 +12,8 @@ import com.example.chenjinhang.calculator.responser.Responser;
  * Created by chenjinhang on 2015/8/19.
  */
 public class MiButton extends Button {
-    private String mName;
+    private String name;
+    private String symbol;
     private Responser mResponser;
 
     public MiButton(Context context) {
@@ -25,16 +26,18 @@ public class MiButton extends Button {
             return;
         }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MiButton);
-        mName = a.getString(R.styleable.MiButton_button_name);
+        name = a.getString(R.styleable.MiButton_button_name);
+        symbol = SymbolMap.getSymbol(name);
+        setText(symbol);
         a.recycle();
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public void setName(String name) {
-        mName = name;
+        this.name = name;
     }
 
     public Responser getResponser() {

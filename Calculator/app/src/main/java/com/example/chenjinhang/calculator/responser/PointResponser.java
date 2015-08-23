@@ -1,34 +1,26 @@
 package com.example.chenjinhang.calculator.responser;
 
-import com.example.chenjinhang.calculator.Core;
-import com.example.chenjinhang.calculator.operator.Operator;
-
-import java.math.BigDecimal;
-import java.util.Stack;
+import com.example.chenjinhang.calculator.InputItem;
+import com.example.chenjinhang.calculator.InputType;
+import com.example.chenjinhang.calculator.Memory;
+import com.example.chenjinhang.calculator.SymbolMap;
 
 /**
  * Created by chenjinhang on 2015/8/21.
  */
 public class PointResponser extends Responser {
     @Override
-    public void onResponse(StringBuilder memomry, Stack<BigDecimal> numberStack, Stack<Operator> operatorStack) {
+    public void onResponse(Memory memory) {
         //空不加
-        if (memomry.length() == 0) {
+        if (memory.isEmpty()) {
             return;
         }
         //运算符后面不加
-        String lastChar = Core.getLastIfOperator(memomry.toString());
-        if (lastChar != null) {
+        int  lastItemType = memory.getLastInputType();
+        if (lastItemType == InputType.type_operator||lastItemType == InputType.type_point) {
             return;
         }
-        //数字有点不加
-        String lastNumber = Core.getLastIfNumber(memomry.toString());
-        if (lastNumber != null) {
-            if (lastNumber.contains(buttonText)) {
-                return;
-            }
-        }
-
-        memomry.append(buttonText);
+        //剩余情况可以加
+        memory.input(new InputItem(SymbolMap.getSymbol(getName()), InputType.type_point));
     }
 }

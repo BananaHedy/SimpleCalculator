@@ -15,16 +15,16 @@ import java.util.Properties;
  */
 public class ResponserFactory {
     private static ResponserFactory mFactory;
-    private Map<String,String> mNameClassMap;
+    private Map<String,String> map;
     private ResponserFactory(Context context){
         InputStream inputStream = null;
         try {
             inputStream = context.getAssets().open("responser.properties");
             Properties properties = new Properties();
             properties.load(inputStream);
-            mNameClassMap = new HashMap<>();
+            map = new HashMap<>();
             for(String name:properties.stringPropertyNames()){
-                mNameClassMap.put(name, properties.getProperty(name));
+                map.put(name, properties.getProperty(name));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,12 +44,12 @@ public class ResponserFactory {
         }
         return mFactory;
     }
-    public Responser createResponser(MiButton miButton){
-        String className = mNameClassMap.get(miButton.getName());
+    public Responser createResponser(String name){
+        String className = map.get(name);
         Responser responser = null;
         try {
             responser = (Responser)Class.forName(className).newInstance();
-            responser.setButtonText(miButton.getText().toString());
+            responser.setName(name);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {

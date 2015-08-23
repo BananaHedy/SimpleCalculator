@@ -1,19 +1,20 @@
 package com.example.chenjinhang.calculator.responser;
 
-import com.example.chenjinhang.calculator.operator.Operator;
-
-import java.math.BigDecimal;
-import java.util.Stack;
+import com.example.chenjinhang.calculator.Memory;
 
 /**
  * Created by chenjinhang on 2015/8/20.
  */
 public abstract class Responser {
-    protected String buttonText;
+    private String name;
 
-    public void setButtonText(String buttonText) {
-        this.buttonText = buttonText;
+    public String getName() {
+        return name;
     }
 
-    public abstract void onResponse(StringBuilder memomry,Stack<BigDecimal> numberStack,Stack<Operator> operatorStack);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public abstract void onResponse(Memory memory);
 }

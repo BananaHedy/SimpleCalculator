@@ -10,20 +10,21 @@ OK设置主题
 理清需求
 抽象设计
 	{Activity{onResult,onControlClick,onInputClick},
-	Controller{List<StringBuilder memory,smallScreen,bigScreen,numberStack<bigDecimal>,operatorStack<Operator>,map<name,Checker>map<name,Operator> ,Operator getOeprator(name),callBack(str,str)},
+	Controller{List<ArrayList<InputItem> memory,smallScreen,bigScreen,numberStack<bigDecimal>,operatorStack<Operator>,map<name,Checker>map<name,Operator> ,Operator getOeprator(name),callBack(str,str)},
 	MiButton{onCLick{performOnRespond(this)}},
 	IRespondser,
 	SimpleNumberRespondser
 	RespondserFactory(Controller),
-	Respondser{(,,),boolean onRespond(memory,stack,stack)}
+	Respondser{(,,),void onRespond(memory,state)}
 	IOperator{},
 	Operator{onOperate(,)throws,(afterOpeate)},
 	Core,运算核心
 	OperatorPriority,优先级
-	Symbol，
+	Symbol{}，
+	InputItem{},
+	State{},
 	OperatorFactory(Controller){map<name,classname>init(),Operator createOepator(name)},
-	.propties
-	.json,别名映射类名
+	.propties 别名映射类名
 	layout，传入别名
 	.xml}
 

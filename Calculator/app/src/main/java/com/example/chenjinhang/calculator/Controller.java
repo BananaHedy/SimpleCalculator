@@ -14,7 +14,7 @@ import java.util.Stack;
 public class Controller {
     private IShell mShell;
     private Context context;
-    private StringBuilder mMemory;
+    private Memory mMemory;
     private Stack<BigDecimal> mNumberStack;
     private Stack<Operator> mOperatorStack;
     private ResponserFactory mResponserFactory;
@@ -24,7 +24,7 @@ public class Controller {
     public Controller(Context context, IShell shell) {
         this.context = context;
         this.mShell = shell;
-        mMemory = new StringBuilder();
+        mMemory = new Memory();
         mNumberStack = new Stack<>();
         mOperatorStack = new Stack<>();
         mResponserFactory = ResponserFactory.getInstance(context);
@@ -33,13 +33,13 @@ public class Controller {
     public void performOnResponse(MiButton miButton) {
         Responser responser = miButton.getResponser();
         if (responser == null) {
-            responser = mResponserFactory.createResponser(miButton);
+            responser = mResponserFactory.createResponser(miButton.getName());
             if (responser == null) {
                 return;
             }
             miButton.setResponser(responser);
         }
-        responser.onResponse(mMemory, mNumberStack, mOperatorStack);
+        responser.onResponse(mMemory);
         mInputText = mMemory.toString();
         refreshScreen();
     }
@@ -52,16 +52,13 @@ public class Controller {
     }
 
     private void reset() {
-        mMemory.delete(0, mMemory.length());
+        mMemory.clear();
         mNumberStack.clear();
         mOperatorStack.clear();
     }
 
     public void delete() {
-        int length = mMemory.length();
-        if (length > 0) {
-            mMemory.deleteCharAt(length - 1);
-        }
+        mMemory.deleteLast();
         mInputText = mMemory.toString();
         refreshScreen();
     }
