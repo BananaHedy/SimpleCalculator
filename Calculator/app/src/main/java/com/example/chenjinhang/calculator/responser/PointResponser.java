@@ -21,6 +21,6 @@ public class PointResponser extends Responser {
             return;
         }
         //剩余情况可以加
-        memory.input(new InputItem(SymbolMap.getSymbol(getName()), InputType.type_point));
+        memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_point,false));
     }
 }

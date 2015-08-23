@@ -2,11 +2,8 @@ package com.example.chenjinhang.calculator;
 
 import android.content.Context;
 
-import com.example.chenjinhang.calculator.operator.Operator;
 import com.example.chenjinhang.calculator.responser.Responser;
-
-import java.math.BigDecimal;
-import java.util.Stack;
+import com.example.chenjinhang.calculator.responser.ResponserFactory;
 
 /**
  * Created by chenjinhang on 2015/8/20.
@@ -15,9 +12,6 @@ public class Controller {
     private IShell mShell;
     private Context context;
     private Memory mMemory;
-    private Stack<BigDecimal> mNumberStack;
-    private Stack<Operator> mOperatorStack;
-    private ResponserFactory mResponserFactory;
     private String mInputText;
     private String mResultText;
 
@@ -25,15 +19,12 @@ public class Controller {
         this.context = context;
         this.mShell = shell;
         mMemory = new Memory();
-        mNumberStack = new Stack<>();
-        mOperatorStack = new Stack<>();
-        mResponserFactory = ResponserFactory.getInstance(context);
     }
 
     public void performOnResponse(MiButton miButton) {
         Responser responser = miButton.getResponser();
         if (responser == null) {
-            responser = mResponserFactory.createResponser(miButton.getName());
+            responser = ResponserFactory.getInstance(context).createResponser(miButton.getName());
             if (responser == null) {
                 return;
             }
@@ -45,16 +36,15 @@ public class Controller {
     }
 
     public void clear() {
-        mInputText = "0";
-        mResultText = "";
         reset();
         refreshScreen();
     }
 
     private void reset() {
-        mMemory.clear();
-        mNumberStack.clear();
-        mOperatorStack.clear();
+        mInputText = "0";
+        mResultText = "";
+        Core.reset();
+        mMemory.reset();
     }
 
     public void delete() {
@@ -64,14 +54,11 @@ public class Controller {
     }
 
     public void calculate() {
-        while (!mOperatorStack.isEmpty()) {
-            mOperatorStack.pop().onOperate(mNumberStack, mOperatorStack);
-        }
-        if (!mNumberStack.isEmpty() && mNumberStack.size() == 1) {
-            BigDecimal finalResult = mNumberStack.pop();
-            mResultText = mMemory.toString();
-            mInputText = finalResult.toPlainString();
-        } else {
+        try {
+            mResultText = mInputText;
+            mInputText = Core.calculate(mMemory);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
             error();
         }
         reset();

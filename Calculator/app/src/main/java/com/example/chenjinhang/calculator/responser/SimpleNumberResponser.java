@@ -12,7 +12,7 @@ public class SimpleNumberResponser extends Responser {
 
     @Override
     public void onResponse(Memory memomry) {
-        memomry.input(new InputItem(SymbolMap.getSymbol(getName()), InputType.type_number));
+        memomry.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_number,false));
     }
 
 
