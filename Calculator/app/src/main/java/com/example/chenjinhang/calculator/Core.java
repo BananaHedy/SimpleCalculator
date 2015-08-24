@@ -26,7 +26,7 @@ public class Core {
         //处理剩余栈
         postProcessStack();
         if(mNumberStack.isEmpty()){
-            return "";
+            return "0";
         }
         BigDecimal finalResult = mNumberStack.pop();
         return finalResult.toPlainString();
