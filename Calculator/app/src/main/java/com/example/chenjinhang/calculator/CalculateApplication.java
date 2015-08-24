@@ -2,6 +2,7 @@ package com.example.chenjinhang.calculator;
 
 import android.app.Application;
 
+import com.example.chenjinhang.calculator.operator.OperatorFactory;
 import com.example.chenjinhang.calculator.responser.ResponserFactory;
 
 /**
@@ -12,6 +13,7 @@ public class CalculateApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ResponserFactory.getInstance(this);
+        OperatorFactory.getInstance(this);
         SymbolMap.getInstance(this);
     }
 }

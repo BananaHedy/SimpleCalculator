@@ -7,9 +7,9 @@ import com.example.chenjinhang.calculator.MemoryReader;
 import com.example.chenjinhang.calculator.SymbolMap;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by chenjinhang on 2015/8/24.
  */
-public class AddResponser extends Responser {
+public class MultiplyResponser extends Responser {
     @Override
     public void onResponse(Memory memory) {
         MemoryReader memoryReader = new MemoryReader(memory);
@@ -22,6 +22,6 @@ public class AddResponser extends Responser {
             memory.removeLastInput();
         }
         //剩余情况可以加
-        memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_operator,true));
+        memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_operator,true));
     }
 }

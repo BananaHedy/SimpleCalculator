@@ -9,8 +9,9 @@ import com.example.chenjinhang.calculator.responser.ResponserFactory;
  * Created by chenjinhang on 2015/8/20.
  */
 public class Controller {
-    private IShell mShell;
     private Context context;
+    private IShell mShell;
+    private Core mCore;
     private Memory mMemory;
     private String mInputText;
     private String mResultText;
@@ -18,6 +19,7 @@ public class Controller {
     public Controller(Context context, IShell shell) {
         this.context = context;
         this.mShell = shell;
+        mCore = new Core(context);
         mMemory = new Memory();
     }
 
@@ -43,12 +45,12 @@ public class Controller {
     private void reset() {
         mInputText = "0";
         mResultText = "";
-        Core.reset();
+        mCore.reset();
         mMemory.reset();
     }
 
     public void delete() {
-        mMemory.deleteLast();
+        mMemory.removeLastInput();
         mInputText = mMemory.toString();
         refreshScreen();
     }
@@ -56,13 +58,13 @@ public class Controller {
     public void calculate() {
         try {
             mResultText = mInputText;
-            mInputText = Core.calculate(mMemory);
+            mInputText = mCore.calculate(mMemory);
         } catch (IllegalStateException e) {
             e.printStackTrace();
             error();
         }
-        reset();
         refreshScreen();
+        reset();
     }
 
     private void error() {

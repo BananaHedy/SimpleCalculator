@@ -22,7 +22,6 @@ OK设置主题
 	OperatorPriority,优先级
 	Symbol{}，
 	InputItem{},
-	State{},
 	OperatorFactory(Controller){map<name,classname>init(),Operator createOepator(name)},
 	.propties 别名映射类名
 	layout，传入别名
@@ -31,9 +30,15 @@ OK设置主题
 编码	
 	OK改一下id
 	OK自定义属性
-	配了一半配置文件
-	定义接口
-
+	OK配置文件
+	OK减法除法
+	动态保留小数点
+	支持负数
+	左右括号
+		触发
+		逻辑
+	动画
+	连续运算
 
 
 

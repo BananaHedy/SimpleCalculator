@@ -11,12 +11,20 @@ public abstract class Operator {
     public static final int OPERATE_NUM_TWO = 2;
     public static final int OPERATE_NUM_THREE = 3;
 
-    protected int mPriority;
-    protected int mOperateNum;
+    private int mPriority;
+    private int mOperateNum;
 
     public Operator(int priority, int operateNum) {
         this.mPriority = priority;
         this.mOperateNum = operateNum;
+    }
+
+    public int getPriority() {
+        return mPriority;
+    }
+
+    public int getOperateNum() {
+        return mOperateNum;
     }
 
     public abstract void onOperate(Stack<BigDecimal> numberStack, Stack<Operator> operatorStack) throws IllegalStateException;

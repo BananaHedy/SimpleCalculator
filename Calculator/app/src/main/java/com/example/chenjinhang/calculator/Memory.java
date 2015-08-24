@@ -7,33 +7,6 @@ import java.util.LinkedList;
  */
 public class Memory {
     private LinkedList<InputItem> inputList = new LinkedList<>();
-    private int index = 0;
-    public void deleteLast() {
-        inputList.removeLast();
-    }
-
-    public boolean hasNextUnit(){
-        return index < inputList.size();
-    }
-    public boolean isNextNumber(){
-        return inputList.get(index).getType()!=InputType.type_operator;
-    }
-
-    public String getNext(){
-        InputItem item = inputList.get(index);
-        if(item.isSingleUnit()){
-            index++;
-            return item.getName();
-        }else{
-            StringBuilder stringBuilder = new StringBuilder();
-            while ()
-        }
-
-    }
-    public void reset() {
-        index = 0;
-        inputList.clear();
-    }
 
     public boolean isEmpty() {
         return inputList.isEmpty();
@@ -43,20 +16,26 @@ public class Memory {
         inputList.add(item);
     }
 
-    public InputItem getLastInput() {
-        return inputList.getLast();
-    }
-
     public InputItem removeLastInput() {
+        if(isEmpty()==true){
+            return null;
+        }
         return inputList.removeLast();
     }
 
-    public int getLastInputType() {
-        return inputList.getLast().getType();
+    public void reset(){
+        inputList.clear();
+    }
+
+    public LinkedList<InputItem> getInputList() {
+        return inputList;
     }
 
     @Override
     public String toString() {
+        if(isEmpty()){
+            return "0";
+        }
         StringBuilder stringBuilder = new StringBuilder();
         for (InputItem item : inputList) {
             stringBuilder.append(item.getSymbol());

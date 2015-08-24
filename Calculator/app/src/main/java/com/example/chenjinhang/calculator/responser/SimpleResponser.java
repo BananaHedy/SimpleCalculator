@@ -8,7 +8,7 @@ import com.example.chenjinhang.calculator.SymbolMap;
 /**
  * Created by chenjinhang on 2015/8/21.
  */
-public class SimpleNumberResponser extends Responser {
+public class SimpleResponser extends Responser {
 
     @Override
     public void onResponse(Memory memomry) {

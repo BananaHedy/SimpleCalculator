@@ -6,11 +6,11 @@ import java.math.BigDecimal;
 import java.util.Stack;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by chenjinhang on 2015/8/24.
  */
-public class AddOperator extends Operator {
-    public AddOperator() {
-        super(OperatePriority.PRIORITY_ADD, OPERATE_NUM_TWO);
+public class SubtractOperator extends Operator {
+    public SubtractOperator() {
+        super(OperatePriority.PRIORITY_SUBTRACT, OPERATE_NUM_TWO);
     }
 
     @Override
@@ -20,6 +20,6 @@ public class AddOperator extends Operator {
         }
         BigDecimal firstDecimal = numberStack.pop();
         BigDecimal secondDecimal = numberStack.pop();
-        numberStack.push(firstDecimal.add(secondDecimal));
+        numberStack.push(secondDecimal.subtract(firstDecimal));
     }
 }

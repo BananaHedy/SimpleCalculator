@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements Controller.IShell
         MiButton miButton = (MiButton)view;
         mController.performOnResponse(miButton);
     }
-    @Click({R.id.mBtnClear, R.id.mBtnEqual})
+    @Click({R.id.mBtnClear, R.id.mBtnEqual,R.id.mBtnDelete})
     public void onControlClick(View view) {
         switch (view.getId()) {
             case R.id.mBtnEqual:

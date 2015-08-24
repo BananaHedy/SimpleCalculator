@@ -3,6 +3,7 @@ package com.example.chenjinhang.calculator.responser;
 import com.example.chenjinhang.calculator.InputItem;
 import com.example.chenjinhang.calculator.InputType;
 import com.example.chenjinhang.calculator.Memory;
+import com.example.chenjinhang.calculator.MemoryReader;
 import com.example.chenjinhang.calculator.SymbolMap;
 
 /**
@@ -11,14 +12,20 @@ import com.example.chenjinhang.calculator.SymbolMap;
 public class PointResponser extends Responser {
     @Override
     public void onResponse(Memory memory) {
-        //空不加
-        if (memory.isEmpty()) {
-            return;
+        MemoryReader memoryReader = new MemoryReader(memory);
+        if(memoryReader.isEmpty()){
+            return ;
         }
         //运算符后面不加
-        int  lastItemType = memory.getLastInputType();
+        int  lastItemType = memoryReader.readLastInputType();
         if (lastItemType == InputType.type_operator||lastItemType == InputType.type_point) {
             return;
+        }
+        //从后往前遇到运算符前有点不加
+        memoryReader.indexToLast();
+        String lastUnit = memoryReader.readNextUnit(true);
+        if(lastUnit.contains(SymbolMap.getSymbol("point"))){
+            return ;
         }
         //剩余情况可以加
         memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_point,false));
