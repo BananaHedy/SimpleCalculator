@@ -38,8 +38,8 @@ public class Core {
         MemoryReader memoryReader = new MemoryReader(memory);
         while (memoryReader.hasNext(false)) {
             if (memoryReader.isIndexOperator()) {
-                String operatorName = memoryReader.readNextUnit(false);
-                Operator operator = OperatorFactory.getInstance(context).createOperator(operatorName);
+                InputItem item = memoryReader.readNextItem(false);
+                Operator operator = OperatorFactory.getInstance(context).createOperator(item.getName());
                 while (mOperatorStack.isEmpty() == false) {
                     Operator topOperator = mOperatorStack.peek();
                     if (topOperator.getPriority() >= operator.getPriority()) {

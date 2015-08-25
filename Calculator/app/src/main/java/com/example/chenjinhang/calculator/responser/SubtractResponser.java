@@ -13,13 +13,18 @@ public class SubtractResponser extends Responser {
     @Override
     public void onResponse(Memory memory) {
         MemoryReader memoryReader = new MemoryReader(memory);
-        //运算符后面替换
-        int lastItemType = memoryReader.readLastInputType();
-        if (lastItemType == InputType.type_non_input) {
-            return;
+
+        if(memoryReader.isEmpty()){
+            return ;
         }
-        if (lastItemType == InputType.type_operator) {
-            memory.removeLastInput();
+        //替换末尾运算符
+        while (memory.isEmpty() == false) {
+            InputItem item = memory.getLastInputItem();
+            if (item.getType() == InputType.type_operator) {
+                memory.removeLastInput();
+            }else{
+                break;
+            }
         }
         memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_operator, true));
 

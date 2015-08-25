@@ -6,6 +6,5 @@ package com.example.chenjinhang.calculator;
 public class InputType {
     public static final int type_non_input = -1;
     public static final int type_number = 0;
-    public static final int type_point = 1;
     public static final int type_operator = 2;
 }

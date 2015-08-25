@@ -16,10 +16,14 @@ public class DivideResponser extends Responser {
         if(memoryReader.isEmpty()){
             return ;
         }
-        //运算符后面替换
-        int  lastItemType = memoryReader.readLastInputType();
-        if (lastItemType == InputType.type_operator) {
-            memory.removeLastInput();
+        //替换末尾运算符
+        while (memory.isEmpty() == false) {
+            InputItem item = memory.getLastInputItem();
+            if (item.getType() == InputType.type_operator) {
+                memory.removeLastInput();
+            }else{
+                break;
+            }
         }
         //剩余情况可以加
         memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_operator,true));

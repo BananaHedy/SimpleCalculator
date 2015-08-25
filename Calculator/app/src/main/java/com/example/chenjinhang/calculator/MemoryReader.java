@@ -30,7 +30,11 @@ public class MemoryReader {
     public boolean isIndexOperator() {
         return mInputList.get(index).getType() == InputType.type_operator;
     }
-
+    public InputItem readNextItem(boolean isReverse){
+        InputItem item = mInputList.get(index);
+        moveIndex(isReverse);
+        return item;
+    }
     public String readNextUnit(boolean isReverse) {
         InputItem item = mInputList.get(index);
         if (item.isSingleUnit()) {

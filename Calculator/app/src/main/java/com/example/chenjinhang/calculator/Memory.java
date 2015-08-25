@@ -31,6 +31,10 @@ public class Memory {
         return inputList;
     }
 
+    public InputItem getLastInputItem(){
+        return inputList.getLast();
+    }
+
     @Override
     public String toString() {
         if(isEmpty()){

@@ -18,16 +18,16 @@ public class PointResponser extends Responser {
         }
         //运算符后面不加
         int  lastItemType = memoryReader.readLastInputType();
-        if (lastItemType == InputType.type_operator||lastItemType == InputType.type_point) {
+        if (lastItemType == InputType.type_operator) {
             return;
         }
         //从后往前遇到运算符前有点不加
         memoryReader.moveIndexToLast();
         String lastUnit = memoryReader.readNextUnit(true);
-        if(lastUnit.contains(SymbolMap.getSymbol("point"))){
+        if(lastUnit.contains(SymbolMap.getSymbol(getName()))){
             return ;
         }
         //剩余情况可以加
-        memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_point,false));
+        memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_number,false));
     }
 }

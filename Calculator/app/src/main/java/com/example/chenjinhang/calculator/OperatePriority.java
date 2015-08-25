@@ -8,6 +8,7 @@ public class OperatePriority {
     public static final int PRIORITY_SUBTRACT =1;
     public static final int PRIORITY_MUTIPLY =2;
     public static final int PRIORITY_DIVIDE =2;
-    public static final int PRIORITY_LEFT_BRACKET =999;
+    public static final int PRIORITY_NEGATIVE = 9;
+    public static final int PRIORITY_LEFT_BRACKET = -999;
     public static final int PRIORITY_RIGHT_BRACKET =999;
 }
