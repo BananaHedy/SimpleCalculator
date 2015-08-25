@@ -57,7 +57,7 @@ public class Controller {
 
     public void calculate() {
         try {
-            mResultText = mInputText;
+            mResultText = mInputText+"=";
             mInputText = mCore.calculate(mMemory);
         } catch (IllegalStateException e) {
             e.printStackTrace();

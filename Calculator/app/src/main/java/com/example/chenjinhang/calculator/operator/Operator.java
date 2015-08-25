@@ -7,6 +7,7 @@ import java.util.Stack;
  * Created by chenjinhang on 2015/8/20.
  */
 public abstract class Operator {
+    public static final int OPERATE_NUM_ZERO = 0;
     public static final int OPERATE_NUM_ONE = 1;
     public static final int OPERATE_NUM_TWO = 2;
     public static final int OPERATE_NUM_THREE = 3;
