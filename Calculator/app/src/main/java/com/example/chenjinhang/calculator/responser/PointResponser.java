@@ -22,7 +22,7 @@ public class PointResponser extends Responser {
             return;
         }
         //从后往前遇到运算符前有点不加
-        memoryReader.indexToLast();
+        memoryReader.moveIndexToLast();
         String lastUnit = memoryReader.readNextUnit(true);
         if(lastUnit.contains(SymbolMap.getSymbol("point"))){
             return ;

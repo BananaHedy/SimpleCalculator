@@ -23,5 +23,6 @@ public class AddResponser extends Responser {
         }
         //剩余情况可以加
         memory.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_operator,true));
+
     }
 }

@@ -20,9 +20,9 @@ public class MemoryReader {
     }
 
     public boolean hasNext(boolean isReverse) {
-        if(isReverse){
-            return index >=0;
-        }else {
+        if (isReverse) {
+            return index >= 0;
+        } else {
             return index < mInputList.size();
         }
     }
@@ -38,31 +38,38 @@ public class MemoryReader {
             return item.getName();
         } else {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(item.getSymbol());
-            moveIndex(isReverse);
-            while (hasNext(isReverse) && !isIndexOperator()) {
-                item = mInputList.get(index);
+            while (!item.isSingleUnit()) {
                 stringBuilder.append(item.getSymbol());
                 moveIndex(isReverse);
+                if (!hasNext(isReverse)) {
+                    break;
+                }
+                item = mInputList.get(index);
             }
             return stringBuilder.toString();
         }
     }
-    private void moveIndex(boolean isReverse){
-        if(isReverse){
+
+    private void moveIndex(boolean isReverse) {
+        if (isReverse) {
             index--;
-        }else{
+        } else {
             index++;
         }
     }
+
     public int readLastInputType() {
+        if (isEmpty()) {
+            return InputType.type_non_input;
+        }
         return mInputList.getLast().getType();
     }
 
     public void indexToFirst() {
         index = 0;
     }
-    public void indexToLast(){
-        index = mInputList.size()-1;
+
+    public void moveIndexToLast() {
+        index = mInputList.size() - 1;
     }
 }

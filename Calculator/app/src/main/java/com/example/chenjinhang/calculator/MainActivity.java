@@ -2,6 +2,7 @@ package com.example.chenjinhang.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chenjinhang.calculator.responser.Responser;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements Controller.IShell
     @ViewById
     TextView mTextViewResult;
     @ViewById
-    TextView mTextViewInput;
+    EditText mTextViewInput;
     private Controller mController;
 
 
@@ -47,8 +48,11 @@ public class MainActivity extends AppCompatActivity implements Controller.IShell
     }
 
     @Override
-    public void refreshScreen(String inputText, String resultText) {
+    public void refreshScreen(String inputText, String resultText ,boolean foucsEnd) {
         mTextViewInput.setText(inputText);
+        if(foucsEnd) {
+            mTextViewInput.setSelection(inputText.length());
+        }
         mTextViewResult.setText(resultText);
     }
 }

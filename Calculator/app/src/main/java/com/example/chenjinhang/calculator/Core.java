@@ -28,8 +28,10 @@ public class Core {
         if(mNumberStack.isEmpty()){
             return "0";
         }
-        BigDecimal finalResult = mNumberStack.pop();
-        return finalResult.toPlainString();
+        BigDecimal decimalResult = mNumberStack.pop();
+        String strResult = decimalResult.toString();
+        strResult = Util.subZeroAndDot(strResult);
+        return strResult;
 
     }
     private void preProcessStack(Memory memory){

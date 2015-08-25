@@ -34,12 +34,12 @@ public class Controller {
         }
         responser.onResponse(mMemory);
         mInputText = mMemory.toString();
-        refreshScreen();
+        refreshScreen(true);
     }
 
     public void clear() {
         reset();
-        refreshScreen();
+        refreshScreen(true);
     }
 
     private void reset() {
@@ -52,7 +52,7 @@ public class Controller {
     public void delete() {
         mMemory.removeLastInput();
         mInputText = mMemory.toString();
-        refreshScreen();
+        refreshScreen(true);
     }
 
     public void calculate() {
@@ -63,7 +63,7 @@ public class Controller {
             e.printStackTrace();
             error();
         }
-        refreshScreen();
+        refreshScreen(false);
         reset();
     }
 
@@ -72,13 +72,13 @@ public class Controller {
         mResultText = "";
     }
 
-    private void refreshScreen() {
+    private void refreshScreen(boolean foucsEnd) {
         if (mShell != null) {
-            mShell.refreshScreen(mInputText, mResultText);
+            mShell.refreshScreen(mInputText, mResultText , foucsEnd);
         }
     }
 
     interface IShell {
-        void refreshScreen(String inputScreen, String resultScreen);
+        void refreshScreen(String inputScreen, String resultScreen,boolean foucsEnd);
     }
 }
