@@ -4,76 +4,94 @@ import java.util.LinkedList;
 
 /**
  * Created by chenjinhang on 2015/8/24.
+ *
+ * Get and read is not safe,may throws Out of Bounds Exception.
+ * please use hasIndex() before use them.
+ *
+ * Read method will move index while get method will not.
  */
 public class MemoryReader {
     private Memory mMemory;
     private LinkedList<InputItem> mInputList;
     private int index = 0;
+    private boolean mIsReverse;
 
-    public MemoryReader(Memory memory) {
+    public MemoryReader(Memory memory, boolean isReverse) {
         mMemory = memory;
         mInputList = mMemory.getInputList();
+        this.mIsReverse = isReverse;
+        if (mIsReverse) {
+            index = mInputList.size() - 1;
+        }
     }
 
     public boolean isEmpty() {
         return mMemory.isEmpty();
     }
 
-    public boolean hasNext(boolean isReverse) {
-        if (isReverse) {
+    public boolean hasIndex() {
+        if (mIsReverse) {
             return index >= 0;
         } else {
             return index < mInputList.size();
         }
     }
 
-    public boolean isIndexOperator() {
-        return mInputList.get(index).getType() == InputType.type_operator;
+    public int getIndexInputType() {
+        int inputType = mInputList.get(index).getType();
+        return inputType;
     }
-    public InputItem readNextItem(boolean isReverse){
+
+    public int readIndexInputType() {
+        int inputType = getIndexInputType();
+        nextIndex();
+        return inputType;
+    }
+
+
+    public InputItem getIndexItem() {
         InputItem item = mInputList.get(index);
-        moveIndex(isReverse);
         return item;
     }
-    public String readNextUnit(boolean isReverse) {
-        InputItem item = mInputList.get(index);
+
+    public InputItem readIndexItem() {
+        InputItem item = getIndexItem();
+        nextIndex();
+        return item;
+    }
+
+    public String readIndexUnit() {
+        InputItem item = getIndexItem();
         if (item.isSingleUnit()) {
-            moveIndex(isReverse);
+            nextIndex();
             return item.getName();
         } else {
             StringBuilder stringBuilder = new StringBuilder();
             while (!item.isSingleUnit()) {
                 stringBuilder.append(item.getSymbol());
-                moveIndex(isReverse);
-                if (!hasNext(isReverse)) {
+                nextIndex();
+                if (!hasIndex()) {
                     break;
                 }
-                item = mInputList.get(index);
+                item = getIndexItem();
             }
             return stringBuilder.toString();
         }
     }
 
-    private void moveIndex(boolean isReverse) {
-        if (isReverse) {
+    public void nextIndex() {
+        if (mIsReverse) {
             index--;
         } else {
             index++;
         }
     }
 
-    public int readLastInputType() {
-        if (isEmpty()) {
-            return InputType.type_non_input;
+    public void preIndex() {
+        if (mIsReverse) {
+            index++;
+        } else {
+            index--;
         }
-        return mInputList.getLast().getType();
-    }
-
-    public void indexToFirst() {
-        index = 0;
-    }
-
-    public void moveIndexToLast() {
-        index = mInputList.size() - 1;
     }
 }

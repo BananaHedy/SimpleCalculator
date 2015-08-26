@@ -18,9 +18,8 @@ public class NegativeResponser extends Responser {
                 return;
             }
             //从后往前遇到运算符前有自己不加
-            MemoryReader memoryReader = new MemoryReader(memory);
-            memoryReader.moveIndexToLast();
-            String lastUnit = memoryReader.readNextUnit(true);
+            MemoryReader memoryReader = new MemoryReader(memory,true);
+            String lastUnit = memoryReader.readIndexUnit();
             if (lastUnit.contains(SymbolMap.getSymbol(getName()))) {
                 return;
             }

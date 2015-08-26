@@ -12,8 +12,7 @@ import com.example.chenjinhang.calculator.SymbolMap;
 public class AddResponser extends Responser {
     @Override
     public void onResponse(Memory memory) {
-        MemoryReader memoryReader = new MemoryReader(memory);
-        if(memoryReader.isEmpty()){
+        if(memory.isEmpty()){
             return ;
         }
         //替换末尾运算符

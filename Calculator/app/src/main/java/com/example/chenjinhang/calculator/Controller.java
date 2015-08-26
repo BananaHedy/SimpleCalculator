@@ -58,17 +58,22 @@ public class Controller {
     public void calculate() {
         try {
             mResultText = mInputText+"=";
-            mInputText = mCore.calculate(mMemory);
+            String calculateResult = mCore.calculate(mMemory).toString();
+            calculateResult = Util.subZeroAndDot(calculateResult);
+            mInputText = calculateResult;
         } catch (IllegalStateException e) {
             e.printStackTrace();
-            error();
+            error("出错");
+        }catch (ArithmeticException e){
+            e.printStackTrace();
+            error(e.getMessage());
         }
         refreshScreen(false);
         reset();
     }
 
-    private void error() {
-        mInputText = "出错";
+    private void error(String msg) {
+        mInputText = msg;
         mResultText = "";
     }
 

@@ -11,6 +11,6 @@ import com.example.chenjinhang.calculator.SymbolMap;
 public class LeftBracketResponser extends Responser {
     @Override
     public void onResponse(Memory memory) {
-        memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_operator,true));
+        memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_bracket,true));
     }
 }
