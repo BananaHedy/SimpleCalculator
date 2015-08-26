@@ -43,7 +43,7 @@
                 android:id="@+id/mBtnClear"
                 style="@style/WhiteButton"
                 android:textColor="#EF7524"
-                app:button_name="negative"/>
+                app:button_name="clear"/>
 
             <com.example.chenjinhang.calculator.MiButton
                 android:id="@+id/mBtnDelete"

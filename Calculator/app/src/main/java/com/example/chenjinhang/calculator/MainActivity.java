@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity implements Controller.IShell
 
     }
 
-    @Click({R.id.mBtnClear,R.id.mBtnOne, R.id.mBtnTwo, R.id.mBtnThree, R.id.mBtnFour, R.id.mBtnFive, R.id.mBtnSix, R.id.mBtnSeven, R.id.mBtnEight, R.id.mBtnNine, R.id.mBtnZero, R.id.mBtnPoint, R.id.mBtnAdd, R.id.mBtnSub, R.id.mBtnMutiply, R.id.mBtnDivide, R.id.mBtnRightBracket, R.id.mBtnLeftBracket})
+    @Click({R.id.mBtnOne, R.id.mBtnTwo, R.id.mBtnThree, R.id.mBtnFour, R.id.mBtnFive, R.id.mBtnSix, R.id.mBtnSeven, R.id.mBtnEight, R.id.mBtnNine, R.id.mBtnZero, R.id.mBtnPoint, R.id.mBtnAdd, R.id.mBtnSub, R.id.mBtnMutiply, R.id.mBtnDivide, R.id.mBtnRightBracket, R.id.mBtnLeftBracket})
     public void onInputClick(View view){
         MiButton miButton = (MiButton)view;
         mController.performOnResponse(miButton);
     }
-    @Click({ R.id.mBtnEqual,R.id.mBtnDelete})
+    @Click({R.id.mBtnClear,R.id.mBtnEqual,R.id.mBtnDelete})
     public void onControlClick(View view) {
         switch (view.getId()) {
             case R.id.mBtnEqual:
