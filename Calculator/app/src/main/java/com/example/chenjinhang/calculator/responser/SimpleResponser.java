@@ -11,8 +11,14 @@ import com.example.chenjinhang.calculator.SymbolMap;
 public class SimpleResponser extends Responser {
 
     @Override
-    public void onResponse(Memory memomry) {
-        memomry.input(new InputItem(getName(),SymbolMap.getSymbol(getName()), InputType.type_number,false));
+    public void onResponse(Memory memory) {
+        if (!memory.isEmpty()) {
+            InputItem item = memory.getLastInputItem();
+            if (item.isSingleUnit() == true && item.getType() == InputType.type_number) {
+                memory.removeLastInput();
+            }
+        }
+        memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_number, false));
     }
 
 

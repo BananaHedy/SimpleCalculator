@@ -25,8 +25,11 @@ public class Core {
         preProcessStack(memory);
         //处理剩余栈
         postProcessStack();
-        if(mNumberStack.size()!=1){
-            throw new IllegalStateException("出错");
+        if(mNumberStack.size()==0){
+            throw new IllegalStateException("无结果");
+        }
+        if(mNumberStack.size()>1){
+            throw new IllegalStateException("多于一个结果");
         }
         BigDecimal decimalResult = mNumberStack.pop();
         return decimalResult;

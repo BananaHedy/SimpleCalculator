@@ -27,6 +27,10 @@ public class InputItem {
         return isSingleUnit;
     }
 
+    public void setIsSingleUnit(boolean isSingleUnit) {
+        this.isSingleUnit = isSingleUnit;
+    }
+
     public String getName() {
         return name;
     }

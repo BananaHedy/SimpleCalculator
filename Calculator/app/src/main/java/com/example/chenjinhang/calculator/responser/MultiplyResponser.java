@@ -24,7 +24,7 @@ public class MultiplyResponser extends Responser {
                 break;
             }
         }
-        //剩余情况可以加
+
         memory.input(new InputItem(getName(), SymbolMap.getSymbol(getName()), InputType.type_operator,true));
     }
 }

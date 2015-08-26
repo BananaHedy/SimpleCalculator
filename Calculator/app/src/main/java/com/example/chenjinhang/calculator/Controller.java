@@ -50,7 +50,12 @@ public class Controller {
     }
 
     public void delete() {
-        mMemory.removeLastInput();
+        if(mMemory.size()==1){
+            mResultText = "";
+        }
+        if(!mMemory.isEmpty()){
+            mMemory.removeLastInput();
+        }
         mInputText = mMemory.toString();
         refreshScreen(true);
     }
@@ -60,16 +65,15 @@ public class Controller {
             mResultText = mInputText+"=";
             String calculateResult = mCore.calculate(mMemory).toString();
             calculateResult = Util.subZeroAndDot(calculateResult);
+            mMemory.reset();
+            mMemory.input(new InputItem(calculateResult,calculateResult,InputType.type_number,true));
             mInputText = calculateResult;
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-            error("出错");
-        }catch (ArithmeticException e){
+        } catch (IllegalStateException|ArithmeticException e) {
+            reset();
             e.printStackTrace();
             error(e.getMessage());
         }
         refreshScreen(false);
-        reset();
     }
 
     private void error(String msg) {

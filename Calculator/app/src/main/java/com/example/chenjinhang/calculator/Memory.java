@@ -34,7 +34,9 @@ public class Memory {
     public InputItem getLastInputItem(){
         return inputList.getLast();
     }
-
+    public int size(){
+        return inputList.size();
+    }
     @Override
     public String toString() {
         if(isEmpty()){

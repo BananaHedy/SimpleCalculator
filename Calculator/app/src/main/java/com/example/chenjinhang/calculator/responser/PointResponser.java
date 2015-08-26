@@ -16,6 +16,14 @@ public class PointResponser extends Responser {
         if(memoryReader.isEmpty()){
             return ;
         }
+
+        if (!memory.isEmpty()) {
+            InputItem item = memory.getLastInputItem();
+            if (item.isSingleUnit() == true && item.getType() == InputType.type_number) {
+                item.setIsSingleUnit(false);
+            }
+        }
+
         //运算符后面不加
         int  lastItemType = memoryReader.readIndexInputType();
         if (lastItemType == InputType.type_operator) {
