@@ -63,20 +63,21 @@ public class Controller {
     public void calculate() {
         try {
             mInputText = mInputText+"=";
-            refreshScreen(true,false);
+            refreshScreen(true, false);
 
             String calculateResult = mCore.calculate(mMemory).stripTrailingZeros().toString();
             mMemory.reset();
-            mMemory.input(new InputItem(calculateResult,calculateResult,InputType.type_number,true));
+            mMemory.input(new InputItem(calculateResult, calculateResult, InputType.type_number, true));
 
             mResultText = mInputText;
             mInputText = calculateResult;
+            refreshScreen(false,true);
         } catch (IllegalStateException|ArithmeticException e) {
             reset();
             e.printStackTrace();
             error(e.getMessage());
+            refreshScreen(false,false);
         }
-        refreshScreen(false,true);
     }
 
     private void error(String msg) {

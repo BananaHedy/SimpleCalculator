@@ -31,7 +31,7 @@ public class Core {
         if(mNumberStack.size()>1){
             throw new IllegalStateException("多于一个结果");
         }
-        BigDecimal decimalResult = mNumberStack.pop().setScale(4,BigDecimal.ROUND_HALF_UP);
+        BigDecimal decimalResult = mNumberStack.pop().setScale(8,BigDecimal.ROUND_HALF_UP);
         return decimalResult;
 
     }
