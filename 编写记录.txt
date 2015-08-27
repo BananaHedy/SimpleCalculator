@@ -17,20 +17,19 @@ OK设置主题
 20日
 理清需求
 抽象设计
-	{Activity{onResult,onControlClick,onInputClick},
-	Controller{List<ArrayList<InputItem> memory,smallScreen,bigScreen,numberStack<bigDecimal>,operatorStack<Operator>,map<name,Checker>map<name,Operator> ,Operator getOeprator(name),callBack(str,str)},
-	MiButton{onCLick{performOnRespond(this)}},
-	IRespondser,
-	SimpleNumberRespondser
-	RespondserFactory(Controller),
-	Respondser{(,,),void onRespond(memory,state)}
-	IOperator{},
-	Operator{onOperate(,)throws,(afterOpeate)},
-	Core运算核心
-	OperatorPriority,优先级
-	Symbol{}，
-	InputItem{},
-	OperatorFactory(Controller){map<name,classname>init(),Operator createOepator(name)},
+	{Activity 外壳，
+	Controller 控制层,
+	MiButton 保存 xml 传入的别名,
+	SimpleNumberResponser 简单数字符响应器，
+	SimpleOperatorResponser 简单运算符响应器，
+	RespondserFactory 根据 responser.propties 生产响应器,
+	Responser 响应逻辑，
+	Operator 运算逻辑 抛出运算异常，
+	Core 运算核心，
+	OperatorPriority 优先级，
+	SymbolMap 符号，
+	InputItem 输入项 （符号通常是独立单元，数字通常是非独立单元）,
+	OperatorFactory 根据 operator.propties 生产运算器,
 	.propties 别名映射类名
 	layout传入别名}
 
