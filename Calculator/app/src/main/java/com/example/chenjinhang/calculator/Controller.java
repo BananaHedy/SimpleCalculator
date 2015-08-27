@@ -34,12 +34,12 @@ public class Controller {
         }
         responser.onResponse(mMemory);
         mInputText = mMemory.toString();
-        refreshScreen(true);
+        refreshScreen(true,false);
     }
 
     public void clear() {
         reset();
-        refreshScreen(true);
+        refreshScreen(true,false);
     }
 
     private void reset() {
@@ -57,23 +57,26 @@ public class Controller {
             mMemory.removeLastInput();
         }
         mInputText = mMemory.toString();
-        refreshScreen(true);
+        refreshScreen(true,false);
     }
 
     public void calculate() {
         try {
-            mResultText = mInputText+"=";
-            String calculateResult = mCore.calculate(mMemory).toString();
-            calculateResult = Util.subZeroAndDot(calculateResult);
+            mInputText = mInputText+"=";
+            refreshScreen(true,false);
+
+            String calculateResult = mCore.calculate(mMemory).stripTrailingZeros().toString();
             mMemory.reset();
             mMemory.input(new InputItem(calculateResult,calculateResult,InputType.type_number,true));
+
+            mResultText = mInputText;
             mInputText = calculateResult;
         } catch (IllegalStateException|ArithmeticException e) {
             reset();
             e.printStackTrace();
             error(e.getMessage());
         }
-        refreshScreen(false);
+        refreshScreen(false,true);
     }
 
     private void error(String msg) {
@@ -81,13 +84,13 @@ public class Controller {
         mResultText = "";
     }
 
-    private void refreshScreen(boolean foucsEnd) {
+    private void refreshScreen(boolean foucsEnd,boolean showAnimation) {
         if (mShell != null) {
-            mShell.refreshScreen(mInputText, mResultText , foucsEnd);
+            mShell.refreshScreen(mInputText, mResultText , foucsEnd,showAnimation);
         }
     }
 
     interface IShell {
-        void refreshScreen(String inputScreen, String resultScreen,boolean foucsEnd);
+        void refreshScreen(String inputScreen, String resultScreen,boolean foucsEnd,boolean showAnimation);
     }
 }
