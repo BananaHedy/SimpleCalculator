@@ -1,13 +1,12 @@
 package com.example.chenjinhang.calculator.operator;
 
-import com.example.chenjinhang.calculator.InputType;
 import com.example.chenjinhang.calculator.OperatePriority;
 
 import java.math.BigDecimal;
 import java.util.Stack;
 
 /**
- * Created by chenjinhang on 2015/8/25.
+ * Created by HappyBanana on 2015/8/25.
  */
 public class NegativeOperator extends Operator {
     public NegativeOperator() {

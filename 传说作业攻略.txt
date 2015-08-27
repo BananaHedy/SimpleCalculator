@@ -1,3 +1,11 @@
+运算逻辑参考:
+1.遇到操作数：直接输出（添加到后缀表达式中）
+2.栈为空时，遇到运算符，直接入栈
+3.遇到左括号：将其入栈
+4.遇到右括号：执行出栈操作，并将出栈的元素输出，直到弹出栈的是左括号，左括号不输出。
+5.遇到其他运算符：加减乘除：弹出所有优先级大于或者等于该运算符的栈顶元素，然后将该运算符入栈
+6.最终将栈中的元素依次出栈，输出。
+
 18日
 OK创建工程
 OK引入注解框架
@@ -18,14 +26,13 @@ OK设置主题
 	Respondser{(,,),void onRespond(memory,state)}
 	IOperator{},
 	Operator{onOperate(,)throws,(afterOpeate)},
-	Core,运算核心
+	Core运算核心
 	OperatorPriority,优先级
 	Symbol{}，
 	InputItem{},
 	OperatorFactory(Controller){map<name,classname>init(),Operator createOepator(name)},
 	.propties 别名映射类名
-	layout，传入别名
-	.xml}
+	layout传入别名}
 
 编码	
 	OK改一下id
@@ -43,13 +50,7 @@ OK设置主题
 		OK逻辑
 	OK合并负号和减号
 	OK连续运算
-	科学计数法
-	动画
+	OK动画
 
-
-1.遇到操作数：直接输出（添加到后缀表达式中）
-2.栈为空时，遇到运算符，直接入栈
-3.遇到左括号：将其入栈
-4.遇到右括号：执行出栈操作，并将出栈的元素输出，直到弹出栈的是左括号，左括号不输出。
-5.遇到其他运算符：加减乘除：弹出所有优先级大于或者等于该运算符的栈顶元素，然后将该运算符入栈
-6.最终将栈中的元素依次出栈，输出。
+27日
+整理代码

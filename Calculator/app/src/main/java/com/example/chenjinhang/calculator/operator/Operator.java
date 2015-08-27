@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Stack;
 
 /**
- * Created by chenjinhang on 2015/8/20.
+ * Created by HappyBanana on 2015/8/20.
  */
 public abstract class Operator {
     public static final int OPERATE_NUM_ZERO = 0;

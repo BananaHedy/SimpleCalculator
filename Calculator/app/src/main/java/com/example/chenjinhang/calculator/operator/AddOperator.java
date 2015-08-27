@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.Stack;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by HappyBanana on 2015/8/21.
  */
 public class AddOperator extends Operator {
     public AddOperator() {

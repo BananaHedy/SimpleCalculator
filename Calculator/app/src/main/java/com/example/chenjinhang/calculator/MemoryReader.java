@@ -3,10 +3,10 @@ package com.example.chenjinhang.calculator;
 import java.util.LinkedList;
 
 /**
- * Created by chenjinhang on 2015/8/24.
+ * Created by HappyBanana on 2015/8/24.
  *
  * Get and read is not safe,may throws Out of Bounds Exception.
- * please use hasIndex() before use them.
+ * Must use hasIndex() and get true before use them.
  *
  * Read method will move index while get method will not.
  */

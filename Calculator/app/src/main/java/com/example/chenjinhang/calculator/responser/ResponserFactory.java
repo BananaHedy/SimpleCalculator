@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by HappyBanana on 2015/8/21.
  */
 public class ResponserFactory {
     private static ResponserFactory mFactory;

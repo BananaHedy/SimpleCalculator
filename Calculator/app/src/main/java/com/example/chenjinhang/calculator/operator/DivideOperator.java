@@ -1,14 +1,12 @@
 package com.example.chenjinhang.calculator.operator;
 
-import android.preference.TwoStatePreference;
-
 import com.example.chenjinhang.calculator.OperatePriority;
 
 import java.math.BigDecimal;
 import java.util.Stack;
 
 /**
- * Created by chenjinhang on 2015/8/24.
+ * Created by HappyBanana on 2015/8/24.
  */
 public class DivideOperator extends Operator {
     public DivideOperator() {

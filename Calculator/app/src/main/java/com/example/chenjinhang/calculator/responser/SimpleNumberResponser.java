@@ -6,9 +6,9 @@ import com.example.chenjinhang.calculator.Memory;
 import com.example.chenjinhang.calculator.SymbolMap;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by HappyBanana on 2015/8/21.
  */
-public class SimpleResponser extends Responser {
+public class SimpleNumberResponser extends Responser {
 
     @Override
     public void onResponse(Memory memory) {

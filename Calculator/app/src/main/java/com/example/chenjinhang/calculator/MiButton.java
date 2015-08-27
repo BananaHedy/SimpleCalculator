@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.chenjinhang.calculator.responser.Responser;
 
 /**
- * Created by chenjinhang on 2015/8/19.
+ * Created by HappyBanana on 2015/8/19.
  */
 public class MiButton extends Button {
     private String name;

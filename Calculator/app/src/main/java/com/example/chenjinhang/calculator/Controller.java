@@ -6,7 +6,7 @@ import com.example.chenjinhang.calculator.responser.Responser;
 import com.example.chenjinhang.calculator.responser.ResponserFactory;
 
 /**
- * Created by chenjinhang on 2015/8/20.
+ * Created by HappyBanana on 2015/8/20.
  */
 public class Controller {
     private Context context;
@@ -65,7 +65,7 @@ public class Controller {
             mInputText = mInputText+"=";
             refreshScreen(true, false);
 
-            String calculateResult = mCore.calculate(mMemory).stripTrailingZeros().toString();
+            String calculateResult = mCore.calculate(mMemory).stripTrailingZeros().toEngineeringString();
             mMemory.reset();
             mMemory.input(new InputItem(calculateResult, calculateResult, InputType.type_number, true));
 

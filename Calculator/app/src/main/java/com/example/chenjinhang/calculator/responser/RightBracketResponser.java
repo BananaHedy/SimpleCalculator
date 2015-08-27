@@ -6,7 +6,7 @@ import com.example.chenjinhang.calculator.Memory;
 import com.example.chenjinhang.calculator.SymbolMap;
 
 /**
- * Created by chenjinhang on 2015/8/25.
+ * Created by HappyBanana on 2015/8/25.
  */
 public class RightBracketResponser extends Responser {
     @Override

@@ -1,7 +1,7 @@
 package com.example.chenjinhang.calculator;
 
 /**
- * Created by chenjinhang on 2015/8/21.
+ * Created by HappyBanana on 2015/8/21.
  */
 public class OperatePriority {
     public static final int PRIORITY_ADD = 1;

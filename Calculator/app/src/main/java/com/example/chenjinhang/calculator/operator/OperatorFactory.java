@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Created by chenjinhang on 2015/8/24.
+ * Created by HappyBanana on 2015/8/24.
  */
 public class OperatorFactory {
     private static OperatorFactory mFactory;
